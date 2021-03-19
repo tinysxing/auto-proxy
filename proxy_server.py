@@ -134,8 +134,9 @@ def handle(client):
     if not header.data:
         client.close()
         return
-    print(*header.get_host_info(), header.get_method())
+
     global pro_address
+    print(*header.get_host_info(), header.get_method(), pro_address)
     socks.set_default_proxy(socks.HTTP,addr=pro_address[0],port=pro_address[1]) 
     socket.socket = socks.socksocket 
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
